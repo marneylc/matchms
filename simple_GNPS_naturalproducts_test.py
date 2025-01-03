@@ -103,10 +103,12 @@ print([x[1] for x in best_matches])
 #    Draw.MolToFile(m, f"compound_{i}.png")
 
 ## apply a minimum number of matching peaks filter
-min_match = plt.figure(figsize=(6,6), dpi=150)
-plt.imshow(scores_array[:50, :50]["ModifiedCosine_score"] \
-           * (scores_array[:50, :50]["ModifiedCosine_matches"] >= min_match), cmap="viridis")
+min_match = 5
+plt.figure(figsize=(6,6), dpi=150)
+plt.imshow(scores_array[:50, :50][type(similarity_measure).__name__ + "_score"] \
+           * (scores_array[:50, :50][type(similarity_measure).__name__ + "_matches"] >= min_match), cmap="viridis")
 plt.colorbar(shrink=0.7)
-plt.title("Modified Cosine spectra similarities (min_match=5)")
+plt.title(f"Spectra similarities by {type(similarity_measure).__name__} (min_match={min_match})")
 plt.xlabel("Spectrum #ID")
 plt.ylabel("Spectrum #ID")
+plt.savefig("similarity_matrix50_minmatch.png", dpi=300)
