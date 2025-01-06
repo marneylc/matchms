@@ -1,0 +1,24 @@
+name: matchms
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.11
+  - matchms
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - numpy
+  - scipy
+  - openpyxl
+  - pyteomics
+  - rdkit
+  - umap-learn
+
+# Pip dependencies
+pip:
+  - package: msconvert==1.0.7 # adjust version as needed
+    channel: conda-forge
+  - package: ms2io==1.3.5 # adjust version as needed
+    channel: pypi

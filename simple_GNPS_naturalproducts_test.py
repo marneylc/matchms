@@ -91,7 +91,7 @@ plt.savefig("similarity_matrix.png", dpi=300)
 
 # return scores for the top-10 candidates (Cosine score + number of matching peaks):
 # first one is match to itself
-best_matches = scores.scores_by_query(spectrums[5], name="CosineGreedy_score", sort=True)[:10]
+best_matches = scores.scores_by_query(spectrums[5], name=type(similarity_measure).__name__ + "_score", sort=True)[:10]
 print([x[1] for x in best_matches])
 [x[0].get("smiles") for x in best_matches]
 
